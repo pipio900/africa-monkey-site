@@ -1,0 +1,118 @@
+/* ===== БАЗОВЫЕ НАСТРОЙКИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== ФОН ===== */
+body {
+    background:
+        radial-gradient(circle at top, #ffeb3b 0%, transparent 40%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(139,69,19,0.18) 0,
+            rgba(139,69,19,0.18) 25px,
+            rgba(255,152,0,0.18) 25px,
+            rgba(255,152,0,0.18) 50px
+        ),
+        #ff9800;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== УЗОР С ОБЕЗЬЯНАМИ ===== */
+body::before {
+    content: "🐒 🐒 🐒 🐒 🐒 🐒 🐒 🐒";
+    position: fixed;
+    inset: 0;
+    font-size: 90px;
+    opacity: 0.04;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    pointer-events: none;
+    animation: float 30s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* ===== ШАПКА ===== */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    color: #3e1f00;
+    border-bottom: 8px double #6d3b00;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+header h1 {
+    font-size: 40px;
+    letter-spacing: 4px;
+    text-shadow: 3px 3px 0 #ffd54f;
+}
+
+header p {
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+/* ===== КОНТЕНТ ===== */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* ===== ГАЛЕРЕЯ ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 18px;
+    padding: 6px;
+    background: linear-gradient(135deg, #ff9800, #ffeb3b);
+    box-shadow:
+        inset 0 0 0 3px #6d3b00,
+        0 15px 25px rgba(0,0,0,0.35);
+    transition: all 0.35s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.08) rotate(-1.5deg);
+    filter: saturate(1.2);
+}
+
+/* ===== ПОДВАЛ ===== */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(90deg, #ff5722, #ff9800);
+    color: #3e1f00;
+    border-top: 8px double #6d3b00;
+    font-size: 14px;
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 26px;
+        letter-spacing: 2px;
+    }
+
+    .gallery img {
+        height: 200px;
+    }
+}
